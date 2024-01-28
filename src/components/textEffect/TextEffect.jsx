@@ -7,7 +7,7 @@ import "./TextEfect.sass";
 // React imports
 import { useState, useEffect } from "react";
 
-const TextEffect = ({ text1 , fontSize, fontWeigth, color }) => {
+const TextEffect = ({ text1 , fontSize, fontWeigth, color , cursor}) => {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
@@ -26,10 +26,11 @@ const TextEffect = ({ text1 , fontSize, fontWeigth, color }) => {
     let updatedWords = wordsArray.map((word, index) => (
       <div key={index} className="words">
         <div className="space"></div>
+
         {word.split("").map((letter, letterIndex) => (
           <span
             key={letterIndex}
-            className={`letter ${color}`}
+            className={`letter ${cursor}`}
             style={{ "--i": styleCount++ }}
           >
             {letter}
@@ -40,12 +41,12 @@ const TextEffect = ({ text1 , fontSize, fontWeigth, color }) => {
 
     // Set the updated words in the state
     setWords(updatedWords);
-  }, [text1]);
+  }, [text1 ]);
 
   return (
-    <div>
-      <div className={`frase  ${fontWeigth} ${fontSize} `} >{words}</div>
-    </div>
+    <>
+      <div className={`frase ${color} ${fontWeigth} ${fontSize} `} >{words}</div>
+    </>
   );
 };
 

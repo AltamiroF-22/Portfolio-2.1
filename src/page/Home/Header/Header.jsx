@@ -1,6 +1,4 @@
 /* eslint-disable no-undef */
-// styles
-import "./Header.sass";
 // components
 import TextEffect from "../../../components/textEffect/TextEffect";
 
@@ -8,61 +6,83 @@ import TextEffect from "../../../components/textEffect/TextEffect";
 import { useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "../../../context/ThemeSwicth";
 
+// styles
+import "./Header.sass";
+
 const Header = () => {
   const { theme } = useContext(ThemeContext);
   const overlayRef = useRef(null);
+  console.log(theme);
 
   useEffect(() => {
-    const overlay = overlayRef.current
-    
-    window.addEventListener('mousemove',(e)=> {
-      const {clientX, clientY} = e;
-      const x = Math.round((clientX / window.innerWidth) * 100)
-      const y = Math.round((clientY / window.innerHeight) * 100)
+    // clip path overlay animation/ position
+    const overlay = overlayRef.current;
+
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      const x = Math.round((clientX / window.innerWidth) * 100);
+      const y = Math.round((clientY / window.innerHeight) * 100);
 
       gsap.to(overlay, {
-        '--x': `${x}%`,
-        '--y': `${y}%`,
+        "--x": `${x}%`,
+        "--y": `${y}%`,
         duration: 0.3,
-        ease: 'sine.out'
-      })
-    })
+        ease: "sine.out"
+      });
+    };
 
-  }, []); 
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Remove event listener
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <header>
       <div className="same4Both">
-       <div className="text">
-       <TextEffect
-          text1="welcome to "
-          fontSize="Size90"
-          fontWeigth="W800"
-        />
-       <TextEffect
-          text1="my portfolio."
-          fontSize="Size90"
-          fontWeigth="W800"
-        />
-       </div>
+        <div className="text">
+          <TextEffect
+            text1="welcome to "
+            fontSize="Size90"
+            fontWeigth="W800"
+            color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
+            cursor="CN"
+          />
+          <TextEffect
+            text1="my portfolio."
+            fontSize="Size90"
+            fontWeigth="W800"
+            color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
+            cursor="CN"
+          />
+        </div>
         <p>Front-end Developer.</p>
       </div>
 
-      <div className="overlay same4Both" ref={overlayRef}>
-       <div className="text">
-       <TextEffect
-          text1="welcome to "
-          fontSize="Size90"
-          fontWeigth="W800"
-          color={`${theme === "Dark-Mode" ? "almostBlack" : "lightGray"}`}
-        />
-       <TextEffect
-          text1="my portfolio."
-          fontSize="Size90"
-          fontWeigth="W800"
-          color={`${theme === "Dark-Mode" ? "almostBlack" : "lightGray"}`}
-        />
-       </div>
+      <div
+        className={`overlay same4Both ${
+          theme === "Light-Mode" ? " " : "almostBlack"
+        }`}
+        ref={overlayRef}
+      >
+        <div className="text">
+          <TextEffect
+            text1="welcome to "
+            fontSize="Size90"
+            fontWeigth="W800"
+            color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
+            cursor="CN"
+          />
+          <TextEffect
+            text1="my portfolio."
+            fontSize="Size90"
+            fontWeigth="W800"
+            color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
+            cursor="CN"
+          />
+        </div>
         <p>Front-end Developer.</p>
       </div>
     </header>

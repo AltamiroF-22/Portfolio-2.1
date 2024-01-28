@@ -6,7 +6,7 @@ import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import "./Navbar.sass";
 
 // react
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeSwicth";
 
 const Navbar = () => {

@@ -1,4 +1,5 @@
-
+@use '../../sass/_mixins'
+@use '../../sass/_variables'
 // fonts size
 
 .Size10
@@ -6,15 +7,28 @@
 
 .Size16
     font-size: 16px
+    @include mixins.responsive-max-width-600px
+    font-size: 14px
 
 .Size24
     font-size: 24px
+    @include mixins.responsive-max-width-600px
+        font-size: 20px
 
 .Size30
     font-size: 30px
 
 .Size90
     font-size: 90px
+    @include mixins.responsive-max-width-600px
+        font-size: 40px
+
+// cursor
+
+.CN
+    cursor: none
+
+    
 
 // font weight
 
@@ -39,10 +53,10 @@
 
 // color
 .lightGray
-    color: #eaeaea 
+    color: variables.$light-gray
 
 .almostBlack
-    color: #1c1c1c
+    color: variables.$almost-black
 
 
 
@@ -61,8 +75,6 @@
   
 .frase 
     width: 100%
-    // background-color: red 
-    margin-bottom: 5px
     justify-content: center
     flex-wrap: wrap
     overflow: hidden

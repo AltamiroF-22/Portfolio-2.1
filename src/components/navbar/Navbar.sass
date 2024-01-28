@@ -6,21 +6,31 @@ nav
     display: flex
     justify-content: space-between
     align-items: center
-    width: 90%
-    padding: 20px 10px
+    width: 100%
+    padding: 20px 100px
     margin: 0 auto 
     margin-top: 10dvh
     opacity: 0
-    animation: headerEnter 700ms forwards ease-in-out
+    animation: navEnter 700ms forwards ease-in-out
+    position: absolute
+
+    @include mixins.responsive-max-width-600px
+        animation: none
+        margin-top: 0
+        padding: 20px
+        opacity: 1
+
+    @keyframes navEnter
+
+        0%
+            margin-top: 10dvh
 
 
-    // @keyframes headerEnter
+        100%
+            margin-top: 0
+            opacity: 1
+            z-index: 90
 
-    //     0%
-    //         margin-top: 10dvh
-    //     100%
-    //         margin-top: 0
-    //         opacity: 1
 
 
     .logo
@@ -65,21 +75,20 @@ nav
                 
         
     .menu-open 
+        width: 101vw
+        height: 101dvh
+        position: fixed
         flex-direction: column
         justify-content: center
-        position: fixed
-        width: 101vw
-        gap: 70px
-        height: 101dvh
         top: 50%
         left: 50%
+        transform: translate(50%,-50%)
+        gap: 70px
         border-radius: 140px 0 0 140px
         box-shadow: -1rem 0rem 2rem #0000003e
-        transform: translate(50%,-50%)
-        // transform: translate(0%,-50%)
+        z-index: 90
         background: variables.$black-background
         animation: menuAnimation 700ms forwards ease-in-out 
-        z-index: 999
         
         li
             display: block
@@ -121,7 +130,6 @@ nav
         100%
             transform: translate(-50%,-50%)
             border-radius: 0
-            z-index: 990
 
     
                     

@@ -12,7 +12,6 @@ import "./Header.sass";
 const Header = () => {
   const { theme } = useContext(ThemeContext);
   const overlayRef = useRef(null);
-  console.log(theme);
 
   useEffect(() => {
     // clip path overlay animation/ position
@@ -46,16 +45,17 @@ const Header = () => {
           <TextEffect
             text1="welcome to "
             fontSize="Size90"
-            fontWeigth="W800"
+            fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
             cursor="CN"
           />
           <TextEffect
             text1="my portfolio."
             fontSize="Size90"
-            fontWeigth="W800"
+            fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
             cursor="CN"
+
           />
         </div>
         <p>Front-end Developer.</p>
@@ -71,14 +71,14 @@ const Header = () => {
           <TextEffect
             text1="welcome to "
             fontSize="Size90"
-            fontWeigth="W800"
+            fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
             cursor="CN"
           />
           <TextEffect
             text1="my portfolio."
             fontSize="Size90"
-            fontWeigth="W800"
+            fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
             cursor="CN"
           />

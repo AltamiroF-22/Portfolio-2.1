@@ -6,6 +6,7 @@ header
     opacity: 0
     animation: headerEnter 700ms forwards ease-in-out
     z-index: 0
+    
 
     p
         text-align: end
@@ -28,18 +29,22 @@ header
         position: absolute
         top: 0
         width: 100%
-        transition: clip-path 100ms     
+        transition: clip-path 90ms     
         clip-path: circle(80px at 50% 50%)
         clip-path: circle(80px at var(--x, 50%) var(--y, 50%))
+        
         p
             color: variables.$light-gray
+            
+        @include mixins.responsive-max-width-850px
+            clip-path: circle(0px at 0% 0%)
+
     .almostBlack
         background-color: variables.$light-gray
+
         p
             color: variables.$black-background
 
-        @include mixins.responsive-max-width-600px
-            clip-path: circle(0px at 0% 0%)
 
                 
 

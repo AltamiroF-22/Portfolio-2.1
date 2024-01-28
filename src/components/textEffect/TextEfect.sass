@@ -19,7 +19,10 @@
     font-size: 30px
 
 .Size90
-    font-size: 90px
+    font-size: 90px  
+    color: variables.$black-background
+    @include mixins.responsive-max-width-850px
+        font-size: 60px
     @include mixins.responsive-max-width-600px
         font-size: 40px
 
@@ -56,8 +59,7 @@
     color: variables.$light-gray
 
 .almostBlack
-    color: variables.$almost-black
-
+    color: variables.$black-background
 
 
 .letter

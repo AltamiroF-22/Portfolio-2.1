@@ -7,7 +7,7 @@ import "./TextEfect.sass";
 // React imports
 import { useState, useEffect } from "react";
 
-const TextEffect = ({ text1 , fontSize, fontWeigth, color , cursor}) => {
+const TextEffect = ({ text1 , fontSize, fontWeigth, color , cursor , firstChild}) => {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const TextEffect = ({ text1 , fontSize, fontWeigth, color , cursor}) => {
 
   return (
     <>
-      <div className={`frase ${color} ${fontWeigth} ${fontSize} `} >{words}</div>
+      <div className={`frase ${firstChild} ${color} ${fontWeigth} ${fontSize} `} >{words}</div>
     </>
   );
 };

@@ -1,0 +1,27 @@
+.loading
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: 100dvh
+    width: 100%
+    positon: fixed
+    z-index: 90
+    background-color: #1c1c1c
+    gap: 2px
+    animation: leaving 1s forwards
+    animation-delay: 1.5s
+    
+
+
+
+
+@keyframes leaving
+    0%
+        transform: translateY(0)
+        border-radius:  0
+    98%
+        transform: translateY(-101dvh)
+        border-radius:  0 0 40% 40%
+    100%
+        display: none

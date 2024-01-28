@@ -1,0 +1,155 @@
+@use '../../sass/_variables'
+@use '../../sass/_mixins'
+
+
+nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 90%
+    padding: 20px 10px
+    margin: 0 auto 
+    margin-top: 10dvh
+    opacity: 0
+    animation: headerEnter 700ms forwards ease-in-out
+
+
+    // @keyframes headerEnter
+
+    //     0%
+    //         margin-top: 10dvh
+    //     100%
+    //         margin-top: 0
+    //         opacity: 1
+
+
+    .logo
+        width: 30px
+        height: 30px
+        border-radius: 50%
+        background-color: variables.$almost-black
+        @include mixins.flex-center
+        
+        span
+            color: variables.$text-in-black
+            cursor: default
+            font-weight: 600
+            margin-right: 1px 
+        
+    .ul-nav
+        display: flex
+        gap: 20px
+        
+        
+        li
+            
+            font-size: 16px  
+            transition: .4s
+            border-bottom: solid 2px  #ffffff00
+            @include mixins.responsive-max-width-600px
+                display: none
+            &:hover
+                border-bottom: solid 2px variables.$black-background
+
+        .Menu-btn
+            @include mixins.flex-center
+            transform: scale(3)
+            display: none
+            position: absolute
+            top: 30px
+            right: 50px
+
+            /////// mobile ////////////
+            @include mixins.responsive-max-width-600px
+                display: flex
+                
+        
+    .menu-open 
+        flex-direction: column
+        justify-content: center
+        position: fixed
+        width: 101vw
+        gap: 70px
+        height: 101dvh
+        top: 50%
+        left: 50%
+        border-radius: 140px 0 0 140px
+        box-shadow: -1rem 0rem 2rem #0000003e
+        transform: translate(50%,-50%)
+        // transform: translate(0%,-50%)
+        background: variables.$black-background
+        animation: menuAnimation 700ms forwards ease-in-out 
+        z-index: 999
+        
+        li
+            display: block
+            margin: 0 auto
+            width: 90%
+            padding: 5px 0
+            border-bottom: solid 4px variables.$text-in-black
+            text-align: center
+            font-size: 35px
+            &:hover
+                border-bottom: solid 4px variables.$text-in-black
+                
+        .Menu-btn
+            color: variables.$white-background
+                
+
+ 
+        .toggle-theme
+            display: flex
+            justify-content: center
+            position: absolute
+            bottom: 50px
+            left: 50%
+            transform: translateX(-60%) scale(1.5)
+            color: variables.$white-background
+                
+    @keyframes menuAnimation 
+        0%
+            transform: translate(50%,-50%)
+            border-radius: 140px 0 0 140px
+       
+        50%
+       
+            box-shadow: 1rem 0rem 3rem 
+        80%
+            box-shadow: 0rem 0rem 1rem 
+
+
+        100%
+            transform: translate(-50%,-50%)
+            border-radius: 0
+            z-index: 990
+
+    
+                    
+    button
+        background: transparent
+        border: none
+        outline: none
+        color: variables.$text-in-white
+        padding-left: 20px 
+        cursor: pointer
+        transition: .2s
+        transform: scale(1.1)
+        @include mixins.responsive-max-width-600px
+            display: none
+
+
+
+/////////////////////// dark mode ////////////////////////////////
+
+.Dark-theme 
+    .logo
+        background-color: variables.$white-background
+        span
+            color: variables.$text-in-white
+    .ul-nav
+
+        li
+             &:hover
+                border-bottom: solid 2px variables.$text-in-black
+    button
+        color: variables.$text-in-black

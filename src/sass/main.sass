@@ -1,0 +1,40 @@
+@use '_variables'
+@use '_mixins'
+
+*
+   padding: 0
+   margin: 0
+   box-sizing: border-box
+   font-family: variables.$principal-font
+   
+
+body
+    // @include mixins.flex-center
+    background: variables.$white-background
+
+    h1,h2,h3,h4,h5,p //, span
+        color: variables.$text-in-white
+
+    a,li
+        color: variables.$almost-black
+        list-style: none
+        text-decoration: none
+        font-weight:100
+        @include mixins.responsive-max-width-600px
+            color: variables.$white-background
+        
+
+
+.Dark-theme 
+    background: variables.$black-background
+
+    h1,h2,h3,h4,h5,p //, span
+        color: variables.$text-in-black
+
+    a,li
+        color: variables.$light-gray
+        
+
+
+    
+    

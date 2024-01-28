@@ -1,0 +1,46 @@
+@use '../../../sass/_mixins'
+@use '../../../sass/_variables'
+    
+// @include mixins.responsive-max-width-600px
+
+header
+    margin-top: 10dvh
+    opacity: 0
+    animation: headerEnter 700ms forwards ease-in-out
+
+    p
+        text-align: end
+        width: 80%
+
+    
+
+    .same4Both
+        background-color: variables.$white-background
+        height: calc(100dvh - 70px)
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding: 3em
+    .overlay
+        background-color: #000
+        position: absolute
+        top: 70px
+        width: 100%
+        transition: clip-path 100ms     
+        clip-path: circle(5px at 50% 10%)
+        clip-path: circle(80px at var(--x, 50%) var(--y, 50%))
+                
+
+
+    @keyframes headerEnter
+
+        0%
+            margin-top: 10dvh
+
+        100%
+            margin-top: 0
+            opacity: 1
+            z-index: 0
+
+@include mixins.responsive-max-width-600px

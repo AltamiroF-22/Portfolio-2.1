@@ -34,9 +34,10 @@ const Header = () => {
     textOverlay.addEventListener("mouseleave", handleMouseLeave);
 
     const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const x = Math.round((clientX / window.innerWidth) * 100);
-      const y = Math.round((clientY / window.innerHeight) * 100);
+      const { pageX, pageY } = e;
+      const x = Math.round((pageX / window.innerWidth) * 100);
+      const y = Math.round((pageY / window.innerHeight) * 100);
+      console.log(window.innerHeight - (window.scrollY))
 
       gsap.to(overlay, {
         "--x": `${x}%`,

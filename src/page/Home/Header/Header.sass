@@ -6,13 +6,10 @@ header
     opacity: 0
     animation: headerEnter 700ms forwards ease-in-out
     z-index: 0
-    
-
     p
         text-align: end
         width: 70%
         
-
     .same4Both
         background-color: variables.$white-background
         background: transparent
@@ -29,9 +26,9 @@ header
         position: absolute
         top: 0
         width: 100%
-        transition: clip-path 90ms     
-        clip-path: circle(80px at 50% 50%)
-        clip-path: circle(80px at var(--x, 50%) var(--y, 50%))
+        // transition: clip-path 90ms     
+        // clip-path: circle(50px at var(--x, -50%) var(--y, 100%))
+        clip-path: circle(var(--size, 7px) at var(--x, 50%) var(--y, 50%))
         
         p
             color: variables.$light-gray

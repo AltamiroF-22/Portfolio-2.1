@@ -1,3 +1,5 @@
+@use '../../sass/_mixins'
+    
 .loading
     display: flex
     justify-content: center
@@ -12,6 +14,9 @@
     animation: leaving 1s forwards
     animation-delay: 1.5s
     z-index: 0
+    @include mixins.responsive-max-width-600px
+        animation: leavingMobile 1s forwards
+        animation-delay: 1.6s
     
 
 @keyframes leaving
@@ -21,5 +26,19 @@
     98%
         transform: translateY(-101dvh)
         border-radius:  0 0 40% 40%
+    100%
+        display: none
+
+@keyframes leavingMobile
+    0%
+        transform: translateY(0)
+        border-radius:  0
+    30%
+        border-radius:  0 0 50px 50px
+
+    98%
+        transform: translateY(-101dvh)
+        border-radius:  0 0 100px 100px
+        
     100%
         display: none

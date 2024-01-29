@@ -11,6 +11,7 @@ import "./sass/main.sass";
 import Navbar from "./components/navbar/Navbar";
 import Loading from "./components/loading/Loading";
 
+
 function App() {
   const [loading, setLoading] = useState(true);
 

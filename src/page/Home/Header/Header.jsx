@@ -8,14 +8,30 @@ import { ThemeContext } from "../../../context/ThemeSwicth";
 
 // styles
 import "./Header.sass";
+//gsap
+import { gsap } from "gsap";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
   const overlayRef = useRef(null);
+  const textOverlayRef = useRef(null);
 
   useEffect(() => {
-    // clip path overlay animation/ position
+    // clip path overlay animation / position / size
     const overlay = overlayRef.current;
+    const textOverlay = textOverlayRef.current;
+
+    let size = 7;
+
+    const handleMouseEnter = () => {
+      size = 70;
+    };
+    const handleMouseLeave = () => {
+      size = 7;
+    };
+
+    textOverlay.addEventListener("mouseenter", handleMouseEnter);
+    textOverlay.addEventListener("mouseleave", handleMouseLeave);
 
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
@@ -25,6 +41,7 @@ const Header = () => {
       gsap.to(overlay, {
         "--x": `${x}%`,
         "--y": `${y}%`,
+        "--size": `${size}px`,
         duration: 0.3,
         ease: "sine.out"
       });
@@ -34,6 +51,8 @@ const Header = () => {
 
     // Remove event listener
     return () => {
+      textOverlay.removeEventListener("mouseenter", handleMouseEnter);
+      textOverlay.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
@@ -47,15 +66,12 @@ const Header = () => {
             fontSize="Size90"
             fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
-            cursor="CN"
           />
           <TextEffect
             text1="my portfolio."
             fontSize="Size90"
             fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
-            cursor="CN"
-
           />
         </div>
         <p>Front-end Developer.</p>
@@ -68,20 +84,20 @@ const Header = () => {
         ref={overlayRef}
       >
         <div className="text">
-          <TextEffect
-            text1="welcome to "
-            fontSize="Size90"
-            fontWeigth="W900"
-            color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
-            cursor="CN"
-          />
-          <TextEffect
-            text1="my portfolio."
-            fontSize="Size90"
-            fontWeigth="W900"
-            color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
-            cursor="CN"
-          />
+          <div ref={textOverlayRef}>
+            <TextEffect
+              text1="welcome to "
+              fontSize="Size90"
+              fontWeigth="W900"
+              color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
+            />
+            <TextEffect
+              text1="my portfolio."
+              fontSize="Size90"
+              fontWeigth="W900"
+              color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
+            />
+          </div>
         </div>
         <p>Front-end Developer.</p>
       </div>

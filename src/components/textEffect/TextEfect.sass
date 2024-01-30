@@ -24,7 +24,7 @@
     @include mixins.responsive-max-width-850px
         font-size: 60px
     @include mixins.responsive-max-width-600px
-        font-size: 40px
+        font-size: 35px
 
 // cursor
 
@@ -64,8 +64,8 @@
 
 .letter
     display: block
-    animation: comingFromTheBottom 600ms both ease-in-out
-    animation-delay: calc(var(--i) * 0.02s)
+    animation: comingFromTheBottom 550ms both ease-in-out
+    animation-delay: calc(var(--i) * 25ms)
     
 
 @keyframes comingFromTheBottom 
@@ -91,3 +91,8 @@
 .space 
     width: 20px
     height: 20px
+    @include mixins.responsive-max-width-850px
+        width: 15px
+    @include mixins.responsive-max-width-600px
+        width: 7px
+

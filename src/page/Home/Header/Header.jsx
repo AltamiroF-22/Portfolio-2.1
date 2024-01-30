@@ -37,13 +37,12 @@ const Header = () => {
       const { pageX, pageY } = e;
       const x = Math.round((pageX / window.innerWidth) * 100);
       const y = Math.round((pageY / window.innerHeight) * 100);
-      console.log(window.innerHeight - (window.scrollY))
 
       gsap.to(overlay, {
-        "--x": `${x}%`,
-        "--y": `${y}%`,
+        "--x": `${x + 0.5}%`,
+        "--y": `${y+ 0.5}%`,
         "--size": `${size}px`,
-        duration: 0.3,
+        duration: 0.24,
         ease: "sine.out"
       });
     };

@@ -16,6 +16,9 @@ const Navbar = () => {
   const toggleMenuBtn = () => {
     setMenuBtn(!menuBtn);
   };
+  const closeMenuBtn = () => {
+    setMenuBtn(false);
+  };
 
   return (
     <>
@@ -23,28 +26,30 @@ const Navbar = () => {
         <div className="logo">
           <span>J</span>
         </div>
-        <ul className={`ul-nav ${menuBtn ? "menu-open" : ""}`}>
+        <ul className={`ul-nav ${menuBtn ? "menu-open" : "menu-close"}`}>
           <li>
-            <a onClick={() => setMenuBtn(false)} href="#">
+            <a onClick={closeMenuBtn} href="#about">
               About
             </a>
           </li>
           <li>
-            <a onClick={() => setMenuBtn(false)} href="#">
+            <a onClick={closeMenuBtn} href="#">
               Projects
             </a>
           </li>
           <li>
-            <a onClick={() => setMenuBtn(false)} href="#">
+            <a onClick={closeMenuBtn} href="#">
               Contact
             </a>
           </li>
           <button className="Menu-btn" onClick={toggleMenuBtn}>
             {menuBtn ? <IoCloseSharp /> : <IoMenu />}
           </button>
-          <button className="toggle-theme" onClick={toggleTheme}>
-            {theme === "Light-Mode" ? <FaSun /> : <FaMoon />}
-          </button>
+          <div className="toggle-theme-father" onClick={closeMenuBtn}>
+            <button className="toggle-theme" onClick={toggleTheme}>
+              {theme === "Light-Mode" ? <FaSun /> : <FaMoon />}
+            </button>
+          </div>
         </ul>
       </nav>
     </>

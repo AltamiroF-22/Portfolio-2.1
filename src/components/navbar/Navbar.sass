@@ -67,7 +67,7 @@ nav
             display: none
             position: absolute
             top: 30px
-            right: 50px
+            right: 30px
 
             /////// mobile ////////////
             @include mixins.responsive-max-width-600px
@@ -84,11 +84,11 @@ nav
         left: 50%
         transform: translate(50%,-50%)
         gap: 70px
-        border-radius: 140px 0 0 140px
+        border-radius: 50% 0 0 50%
         box-shadow: -1rem 0rem 2rem #0000003e
         z-index: 90
         background: variables.$black-background
-        animation: menuAnimation 700ms forwards ease-in-out 
+        animation: menuAnimation 400ms both ease-in-out 
         
         li
             display: block
@@ -114,25 +114,26 @@ nav
             left: 50%
             transform: translateX(-60%) scale(1.5)
             color: variables.$white-background
-
-                
+    
     @keyframes menuAnimation 
         0%
             transform: translate(50%,-50%)
-            border-radius: 140px 0 0 140px
-       
+
+        45%
+            border-radius: 50% 0 0 50% 
+
         50%
-       
+                
             box-shadow: 1rem 0rem 3rem 
+
         80%
             box-shadow: 0rem 0rem 1rem 
-
+            
 
         100%
             transform: translate(-50%,-50%)
             border-radius: 0
-
-    
+   
                     
     button
         background: transparent
@@ -141,12 +142,14 @@ nav
         border: none
         outline: none
         color: variables.$text-in-white
-        padding-left: 25px 
+        margin-left: 25px 
         cursor: pointer
         transition: .2s
         transform: scale(1.1)
         @include mixins.responsive-max-width-600px
             display: none
+    .toggle-theme-father
+        @include mixins.flex-center
 
 
 

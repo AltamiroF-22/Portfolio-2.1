@@ -19,8 +19,9 @@ const About = () => {
     const handleAboutScroll = () => {
       let aboutBox = about.getBoundingClientRect();
       let textEffectBox = textEffect.getBoundingClientRect();
-      // when visible start from the top of the section set new className and call text effect
 
+      // when visible start from the top of the section set new className
+      // and call text effect
       if (Math.round(aboutBox.y - 50 - window.innerHeight) < 0) {
         setIsAboutVisible(true);
       }
@@ -56,7 +57,7 @@ const About = () => {
         )}
       </div>
       <div className="textAboutMe">
-        <div className="leftSide">
+        <article className="leftSide">
           <p>
             Hey there, I'm Altamiro Ribeiro da Rocha Junior, a web development
             enthusiast who began their journey in the programming world in
@@ -73,8 +74,8 @@ const About = () => {
             React and Sass, enhancing my skills and enabling me to create more
             robust and stylized web applications.
           </p>
-        </div>
-        <div className="rightSide">
+        </article>
+        <article className="rightSide">
           <p>
             At the end of 2023, I faced a personal challenge when my mom was
             hospitalized, which caused me to take a break for about two months.
@@ -88,7 +89,7 @@ const About = () => {
             skill set. I'm eager to explore new horizons and face more complex
             challenges while continuing to improve my skills as a developer...
           </p>
-        </div>
+        </article>
       </div>
     </section>
   );

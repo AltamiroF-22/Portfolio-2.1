@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 //components
 import Header from "./Header/Header";
 import About from "./about/About";
-import SelectedProjects from "./selectedProjects/selectedProjects";
+import { SelectedProjects } from "./selectedProjects/selectedProjects";
+
 import MagnetoCircle from "../../components/magnetoCirlcle/MagnetoCorcle";
 
 //lenis scroll smooth

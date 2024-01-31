@@ -1,7 +1,8 @@
 @use '../../sass/_variables'
 @use '../../sass/_mixins'
-    
+
 .single-project
+    transition: 600ms
     max-width: 550px
     aspect-ratio: 1/1
     object-fit: contain
@@ -9,10 +10,19 @@
     display: flex
     justify-content: center
     align-items: center
-    
+    @include mixins.responsive-max-width-1240px
+        max-width: 430px
+    @include mixins.responsive-max-width-1030px
+        max-width: 350px
+        justify-content: center
+    @include mixins.responsive-max-width-850px
+        max-width: 300px
+    @include mixins.responsive-max-width-850px
+        max-width: 550px
+
+
     .project-img
         display: flex
-
         img
             width: 91.8%
             margin: 0 auto
@@ -21,7 +31,6 @@ h2
     margin-bottom: 40px
     border-bottom: solid 1px #ccc
     font-weight: 400
-
 .Dark-theme 
     .single-project
         background: variables.$almost-black

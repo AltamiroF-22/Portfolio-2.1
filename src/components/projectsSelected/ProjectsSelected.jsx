@@ -5,15 +5,15 @@ import "./ProjectsSelected.sass";
 
 export const ProjectComponent = ({ src, alt, h2, href }) => {
   return (
-    <div>
-      <div className="single-project">
-        <a href={href} target="blank" className="project-img">
-          <img src={src} alt={alt} />
+    <>
+      <figure className="single-project">
+        <a href={href} target="_blank" rel="noreferrer" className="project-img">
+          <img src={src} alt={alt} className="project-img" />
         </a>
-      </div>
-      <h2>{h2}</h2>
-    </div>
+      </figure>
+      <figcaption>
+        <h2>{h2}</h2>
+      </figcaption>
+    </>
   );
 };
-
-

@@ -86,7 +86,7 @@ const Home = () => {
         }`}
         ref={selectedProjectsRef}
       >
-        <div className="selected-rojects-title" ref={textEffectRef}>
+        <header className="selected-rojects-title" ref={textEffectRef}>
           {isTextEffectVisible ? (
             <TextEffect
               text1="selected projects"
@@ -97,18 +97,18 @@ const Home = () => {
           ) : (
             ""
           )}
-        </div>
+        </header>
 
         <section className="project">
           {SelectedProjectsData.map((item) => (
-            <div key={item.id}>
+            <article key={item.id}>
               <ProjectComponent
                 h2={item.name}
                 src={item.image}
                 alt={item.name}
                 href={item.project_live}
               />
-            </div>
+            </article>
           ))}
         </section>
       </main>

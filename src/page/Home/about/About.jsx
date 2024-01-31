@@ -44,7 +44,7 @@ const About = () => {
       className={`about ${isAboutVisible ? "about-now-visible" : ""}`}
       id="about"
     >
-      <div className="title" ref={textEffectRef}>
+      <h2 className="title" ref={textEffectRef}>
         {isTextEffectVisible ? (
           <TextEffect
             text1="about-me"
@@ -55,7 +55,7 @@ const About = () => {
         ) : (
           ""
         )}
-      </div>
+      </h2>
       <div className="textAboutMe">
         <article className="leftSide">
           <p>

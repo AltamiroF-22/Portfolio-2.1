@@ -6,7 +6,7 @@ import TextEffect from "../textEffect/TextEffect";
 
 const Loading = () => {
   return (
-    <div className="loading">
+    <main className="loading">
       <TextEffect
         text1="loading..."
         fontSize="Size16"
@@ -21,7 +21,7 @@ const Loading = () => {
         color="lightGray"
         cursor="CN"
       />
-    </div>
+    </main>
   );
 };
 

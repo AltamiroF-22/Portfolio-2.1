@@ -1,3 +1,5 @@
+@use '../../sass/_mixins'
+    
 .selectedProjects
     margin: 0 auto
     width: 100%
@@ -21,4 +23,12 @@
         margin: 0 auto
         gap: 10px
         flex-wrap: wrap
+        @include mixins.responsive-max-width-1240px
+            gap: 60px
+        @include mixins.responsive-max-width-1030px
+            gap: 30px
+        @include mixins.responsive-max-width-850px
+            gap: 10px
+            justify-content: center
+
     

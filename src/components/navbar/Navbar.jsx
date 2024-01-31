@@ -6,10 +6,11 @@ import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import "./Navbar.sass";
 
 // react
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "../../context/ThemeSwicth";
 
 const Navbar = () => {
+  const removeMenuOpenRef = useRef(null);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuBtn, setMenuBtn] = useState(false);
 
@@ -20,13 +21,32 @@ const Navbar = () => {
     setMenuBtn(false);
   };
 
+  useEffect(() => {
+    const removeMenuOpen = removeMenuOpenRef.current;
+    const handleRemoveClass = () => {
+      if (window.scrollY > 30) {
+        removeMenuOpen.classList.remove("menu-open");
+        setMenuBtn(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleRemoveClass);
+
+    return () => {
+      window.removeEventListener("scroll", handleRemoveClass);
+    };
+  }, []);
+
   return (
     <>
       <nav>
         <div className="logo">
           <span>J</span>
         </div>
-        <ul className={`ul-nav ${menuBtn ? "menu-open" : "menu-close"}`}>
+        <ul
+          ref={removeMenuOpenRef}
+          className={`ul-nav ${menuBtn ? "menu-open" : ""}`}
+        >
           <li>
             <a onClick={closeMenuBtn} href="#about">
               About

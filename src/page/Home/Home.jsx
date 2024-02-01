@@ -25,14 +25,20 @@ import "./SelectedProjects.sass";
 import ArrowsUP from "../../assets/arrow/ArrowsUP.svg";
 
 const Home = () => {
+  // Refs to various elements in the component
   const textEffectRef = useRef(null);
   const selectedProjectsRef = useRef(null);
+  const followCursorRef = useRef(null);
+  const articleRef = useRef([]);
+
+  // States to manage visibility and behavior
+  const [isFollowCursorVisible, setIsCursorFollowVisible] = useState(false);
   const [isTextEffectVisible, setIsTextEffectVisible] = useState(false);
   const [isSelectedProjects, setIsSelectedProjects] = useState(false);
   const [showBackUpArrow, setShowBackUpArrow] = useState(false);
 
   useEffect(() => {
-    // lenis scroll smooth
+    // lenis scroll smooth initialization
     const lenis = new Lenis();
 
     lenis.on("scroll", ScrollTrigger.update);
@@ -42,15 +48,14 @@ const Home = () => {
 
     gsap.ticker.lagSmoothing(0);
 
-    // show Back Up Arrow
+    // Show back up arrow based on scroll position
     const handleScroll = () => {
-      scrollY > 300 ? setShowBackUpArrow(true) : setShowBackUpArrow(false);
+      scrollY > 500 ? setShowBackUpArrow(true) : setShowBackUpArrow(false);
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // when visible start from the top of the section set new className
-    // and call text effect
+    // Detect visibility and trigger effects when scrolling
     const textEffect = textEffectRef.current;
     const selectedProjects = selectedProjectsRef.current;
 
@@ -68,11 +73,66 @@ const Home = () => {
     };
     window.addEventListener("scroll", handleScrollTextEffect);
 
+    // Follow cursor logic
+    const followCursor = followCursorRef.current;
+    const article = articleRef.current;
+    let size = 15;
+
+    const handleMouseEnter = () => {
+      size = 60;
+      if (followCursorRef.current) {
+        followCursorRef.current.textContent = "View";
+      }
+    };
+    const handleMouseLeave = () => {
+      size = 15;
+      if (followCursorRef.current) {
+        followCursorRef.current.textContent = "";
+      }
+    };
+
+    const handleFollowCursor = (e) => {
+      const { pageX, pageY } = e;
+
+      gsap.to(followCursor, {
+        "--x": `${pageX - size / 2}px`,
+        "--y": `${pageY - window.scrollY - size / 2}px`,
+        "--size": `${size}px`,
+        duration: 0.24,
+        ease: "sine.out"
+      });
+    };
+
+    const handleSetAdRemoveCursorFollow = () => {
+      let selectedProjectsBox = selectedProjects.getBoundingClientRect();
+
+      if (Math.round(selectedProjectsBox.y - window.innerHeight / 2) < 0) {
+        setIsCursorFollowVisible(true);
+      } else {
+        setIsCursorFollowVisible(false);
+      }
+    };
+
+    // Event listeners for mouse actions and scrolling
+    article.forEach((i) => i.addEventListener("mouseenter", handleMouseEnter));
+    article.forEach((i) => i.addEventListener("mouseleave", handleMouseLeave));
+    window.addEventListener("mousemove", handleFollowCursor);
+    window.addEventListener("scroll", handleSetAdRemoveCursorFollow);
+
+    // Cleanup: remove all event listeners
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleScrollTextEffect);
+      window.removeEventListener("mousemove", handleFollowCursor);
+      window.removeEventListener("scroll", handleSetAdRemoveCursorFollow);
+      article.forEach((i) =>
+        i.removeEventListener("mouseenter", handleMouseEnter)
+      );
+      article.forEach((i) =>
+        i.removeEventListener("mouseleave", handleMouseLeave)
+      );
     };
-  }, []);
+  }, []); // Empty dependency array means this effect runs only once after the initial render
 
   return (
     <div className="home-page" id="home">
@@ -86,6 +146,17 @@ const Home = () => {
         }`}
         ref={selectedProjectsRef}
       >
+        {/* ____selected projects cursor follow_____*/}
+        <div
+          className={`follow-cursor ${
+            isFollowCursorVisible ? "follow-cursor-visible" : ""
+          }`}
+          ref={followCursorRef}
+        >
+          <span></span>
+        </div>
+        {/* ____end of cursor follow_____*/}
+
         <header className="selected-rojects-title" ref={textEffectRef}>
           {isTextEffectVisible ? (
             <TextEffect
@@ -100,8 +171,11 @@ const Home = () => {
         </header>
 
         <section className="project">
-          {SelectedProjectsData.map((item) => (
-            <article key={item.id}>
+          {SelectedProjectsData.map((item, index) => (
+            <article
+              key={item.id}
+              ref={(el) => (articleRef.current[index] = el)}
+            >
               <ProjectComponent
                 h2={item.name}
                 src={item.image}
@@ -114,18 +188,19 @@ const Home = () => {
       </main>
       {/*______________ end selected projects main _________________ */}
 
-      <a href="#home" className="back-to-top">
-        {showBackUpArrow ? (
-          <MagnetoCircle
-            position="fixed"
-            img={ArrowsUP}
-            size="normal"
-            backgroundColor="oliva"
-            cursor="pointer"
-          />
-        ) : (
-          ""
-        )}
+      <a
+        href="#home"
+        className={`back-to-top ${
+          showBackUpArrow ? "back-to-top-on" : "back-to-top-off"
+        }`}
+      >
+        <MagnetoCircle
+          position="fixed"
+          img={ArrowsUP}
+          size="normal"
+          backgroundColor="oliva"
+          cursor="pointer"
+        />
       </a>
     </div>
   );

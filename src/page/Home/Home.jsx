@@ -190,6 +190,7 @@ const Home = () => {
 
       <a
         href="#home"
+        alt="arrowUp"
         className={`back-to-top ${
           showBackUpArrow ? "back-to-top-on" : "back-to-top-off"
         }`}

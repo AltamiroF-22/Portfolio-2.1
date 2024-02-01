@@ -199,6 +199,7 @@ const Home = () => {
           position="fixed"
           img={ArrowsUP}
           size="normal"
+          alt="arrowUp"
           backgroundColor="oliva"
           cursor="pointer"
         />

@@ -53,22 +53,22 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a onClick={closeMenuBtn} href="#">
+            <a onClick={closeMenuBtn} href="#selectedProjects">
               Projects
             </a>
           </li>
           <li>
-            <a onClick={closeMenuBtn} href="#">
+            <a onClick={closeMenuBtn} href="#contact">
               Contact
             </a>
           </li>
-          <button className="Menu-btn" onClick={toggleMenuBtn}>
+          <div className="Menu-btn button" onClick={toggleMenuBtn}>
             {menuBtn ? <IoCloseSharp /> : <IoMenu />}
-          </button>
+          </div>
           <div className="toggle-theme-father" onClick={closeMenuBtn}>
-            <button className="toggle-theme" onClick={toggleTheme}>
+            <div className="toggle-theme button" onClick={toggleTheme}>
               {theme === "Light-Mode" ? <FaSun /> : <FaMoon />}
-            </button>
+            </div>
           </div>
         </ul>
       </nav>

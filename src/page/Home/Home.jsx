@@ -43,7 +43,7 @@ const Home = () => {
 
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
-      lenis.raf(time * 900);
+      lenis.raf(time * 950);
     });
 
     gsap.ticker.lagSmoothing(0);
@@ -96,7 +96,7 @@ const Home = () => {
 
       gsap.to(followCursor, {
         "--x": `${pageX - size / 2}px`,
-        "--y": `${pageY - window.scrollY - size / 2}px`,
+        "--y": `${pageY - window.scrollY - size / 1.5}px`,
         "--size": `${size}px`,
         duration: 0.24,
         ease: "sine.out"
@@ -136,11 +136,15 @@ const Home = () => {
 
   return (
     <div className="home-page" id="home">
+      {/* Render the Header component */}
       <Header />
+
+      {/* Render the About component */}
       <About />
 
       {/* _____________ selected projects main ___________*/}
       <main
+        id="selectedProjects"
         className={`selectedProjects ${
           isSelectedProjects ? "selected-projects-visible" : ""
         }`}
@@ -157,12 +161,13 @@ const Home = () => {
         </div>
         {/* ____end of cursor follow_____*/}
 
+        {/* Header for the selected projects section */}
         <header className="selected-rojects-title" ref={textEffectRef}>
           {isTextEffectVisible ? (
             <TextEffect
               text1="selected projects"
               fontSize="Size30"
-              fontWeigth="W700"
+              fontWeigth="W800"
               color="switch-Dark-Light"
             />
           ) : (
@@ -170,16 +175,18 @@ const Home = () => {
           )}
         </header>
 
+        {/* Section containing individual project articles */}
         <section className="project">
           {SelectedProjectsData.map((item, index) => (
             <article
               key={item.id}
               ref={(el) => (articleRef.current[index] = el)}
             >
+              {/* Render ProjectComponent for each project */}
               <ProjectComponent
                 h2={item.name}
                 src={item.image}
-                alt={item.name}
+                alt={item.alt}
                 href={item.project_live}
               />
             </article>
@@ -188,6 +195,7 @@ const Home = () => {
       </main>
       {/*______________ end selected projects main _________________ */}
 
+      {/* Back-to-top button with MagnetoCircle component */}
       <a
         href="#home"
         alt="arrowUp"

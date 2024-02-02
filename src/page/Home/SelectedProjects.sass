@@ -23,7 +23,7 @@
         width: 90%
         justify-content: space-between
         margin: 0 auto
-        gap: 10px
+        gap: 50px
         flex-wrap: wrap
         @include mixins.responsive-max-width-1240px
             gap: 60px
@@ -45,7 +45,7 @@
     z-index: 3
     transition: 20ms
     pointer-events: none
-    // position: absolute
+    overflow: hidden
     position: fixed
     top: var(--y, 50%)
     left: var(--x, 50%)

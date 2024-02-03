@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 //components
 import Header from "./Header/Header";
 import About from "./about/About";
+import ContactMe from "./contactMe/ContactMe";
 import MagnetoCircle from "../../components/magnetoCirlcle/MagnetoCorcle";
 import { SelectedProjectsData } from "../../data/projects/SelectedProjects";
 import { ProjectComponent } from "../../components/projectsSelected/ProjectsSelected";
@@ -36,6 +37,12 @@ const Home = () => {
   const [isTextEffectVisible, setIsTextEffectVisible] = useState(false);
   const [isSelectedProjects, setIsSelectedProjects] = useState(false);
   const [showBackUpArrow, setShowBackUpArrow] = useState(false);
+
+  // Refs Contact me form
+  const fullnameRef = useRef();
+  const emailRef = useRef();
+  const subjectRef = useRef();
+  const messageRef = useRef();
 
   useEffect(() => {
     // lenis scroll smooth initialization
@@ -136,10 +143,7 @@ const Home = () => {
 
   return (
     <div className="home-page" id="home">
-      {/* Render the Header component */}
       <Header />
-
-      {/* Render the About component */}
       <About />
 
       {/* _____________ selected projects main ___________*/}
@@ -193,7 +197,13 @@ const Home = () => {
           ))}
         </section>
       </main>
-      {/*______________ end selected projects main _________________ */}
+      
+      <ContactMe
+        fullnameRef={fullnameRef}
+        emailRef={emailRef}
+        subjectRef={subjectRef}
+        messageRef={messageRef}
+      />
 
       {/* Back-to-top button with MagnetoCircle component */}
       <a

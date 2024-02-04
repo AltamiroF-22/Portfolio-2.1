@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./Footer.sass";
 import FavIcon from "../../../assets/favicon/favIcon.svg";
+import { Link } from "react-router-dom"; 
 
 // icons
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -16,42 +17,38 @@ const Footer = ({
   return (
     <footer>
       <div className="up">
-        <a href="#home">
+        <Link to="#home">
           <img src={FavIcon} alt="logo / favIcon" />
-        </a>
+        </Link>
         <div className="right">
-          <a
+          <Link
             ref={gitHubRef}
-            href="https://github.com/AltamiroF-22"
-            rel="noreferrer"
+            to="https://github.com/AltamiroF-22"
             target="_blank"
           >
             <FaGithub />
-          </a>
-          <a
+          </Link>
+          <Link
             ref={instagramRef}
-            href="https://www.instagram.com/junior.rx22/"
-            rel="noreferrer"
+            to="https://www.instagram.com/junior.rx22/"
             target="_blank"
           >
             <IoLogoInstagram />
-          </a>
-          <a
+          </Link>
+          <Link
             ref={linkedinRef}
-            href="https://www.linkedin.com/in/altamiro-j%C3%BAnior-79060b261/"
-            rel="noreferrer"
+            to="https://www.linkedin.com/in/altamiro-j%C3%BAnior-79060b261/"
             target="_blank"
           >
             <FaLinkedin />
-          </a>
-          <a
+          </Link>
+          <Link
             ref={frontendMentorRef}
-            href="https://www.frontendmentor.io/profile/AltamiroF-22"
-            rel="noreferrer"
+            to="https://www.frontendmentor.io/profile/AltamiroF-22"
             target="_blank"
           >
             <SiFrontendmentor />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="bottom">

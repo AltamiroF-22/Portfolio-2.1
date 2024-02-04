@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2400);
+    }, 1350);
   }, []);
 
   const { theme } = useContext(ThemeContext);

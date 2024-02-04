@@ -1,4 +1,3 @@
-// Home.jsx
 //react
 import { useEffect, useState, useRef } from "react";
 
@@ -6,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import Header from "./Header/Header";
 import About from "./about/About";
 import ContactMe from "./contactMe/ContactMe";
+import Footer from "./footer/Footer";
 import MagnetoCircle from "../../components/magnetoCirlcle/MagnetoCorcle";
 import { SelectedProjectsData } from "../../data/projects/SelectedProjects";
 import { ProjectComponent } from "../../components/projectsSelected/ProjectsSelected";
@@ -39,10 +39,13 @@ const Home = () => {
   const [showBackUpArrow, setShowBackUpArrow] = useState(false);
 
   // Refs Contact me form
-  const fullnameRef = useRef();
-  const emailRef = useRef();
-  const subjectRef = useRef();
-  const messageRef = useRef();
+  const buttomRef = useRef(null);
+
+  // Refs footer
+  const gitHubRef = useRef(null);
+  const instagramRef = useRef(null);
+  const linkedinRef = useRef(null);
+  const frontendMentorRef = useRef(null);
 
   useEffect(() => {
     // lenis scroll smooth initialization
@@ -66,6 +69,15 @@ const Home = () => {
     const textEffect = textEffectRef.current;
     const selectedProjects = selectedProjectsRef.current;
 
+    //contact me buttomn
+    const buttom = buttomRef.current;
+
+    //footer icons/links
+    const gitHub = gitHubRef.current;
+    const instagram = instagramRef.current;
+    const linkedin = linkedinRef.current;
+    const frontendMentor = frontendMentorRef.current;
+
     const handleScrollTextEffect = () => {
       let textEffectBox = textEffect.getBoundingClientRect();
       let selectedProjectsBox = selectedProjects.getBoundingClientRect();
@@ -85,19 +97,25 @@ const Home = () => {
     const article = articleRef.current;
     let size = 15;
 
+    //selected projects
     const handleMouseEnter = () => {
       size = 60;
-      if (followCursorRef.current) {
-        followCursorRef.current.textContent = "View";
-      }
+
+      followCursor.textContent = "View";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
     };
+    //selected projects
     const handleMouseLeave = () => {
       size = 15;
-      if (followCursorRef.current) {
-        followCursorRef.current.textContent = "";
-      }
-    };
 
+      followCursor.textContent = "";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    //Cursor follow
     const handleFollowCursor = (e) => {
       const { pageX, pageY } = e;
 
@@ -109,7 +127,7 @@ const Home = () => {
         ease: "sine.out"
       });
     };
-
+    // remove Cursor function
     const handleSetAdRemoveCursorFollow = () => {
       let selectedProjectsBox = selectedProjects.getBoundingClientRect();
 
@@ -120,11 +138,118 @@ const Home = () => {
       }
     };
 
+    // hover Submit Contact me Form
+    const handleMouseEnterButtom = () => {
+      size = 60;
+
+      followCursor.textContent = "Send";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    // hover Submit Contact me Form
+    const handleMouseLeaveButtom = () => {
+      size = 15;
+
+      followCursor.textContent = "";
+      followCursor.style.fontSize = "15px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+
+    //footer fuctions
+
+    //github
+    const handleGitHubEnter = () => {
+      size = 40;
+      followCursor.textContent = "Visite";
+      followCursor.style.fontSize = "10px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    const handleGitHubLeave = () => {
+      size = 15;
+      followCursor.textContent = " ";
+      followCursor.style.fontSize = "15px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+
+    // instagram
+    const handleinstagramEnter = () => {
+      size = 40;
+      followCursor.textContent = "Visite";
+      followCursor.style.fontSize = "10px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    const handleinstagramLeave = () => {
+      size = 15;
+      followCursor.textContent = " ";
+      followCursor.style.fontSize = "15px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+
+    //linkedin
+    const handlelinkedinEnter = () => {
+      size = 40;
+      followCursor.textContent = "Visite";
+      followCursor.style.fontSize = "10px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    const handlelinkedinLeave = () => {
+      size = 15;
+      followCursor.textContent = " ";
+      followCursor.style.fontSize = "15px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+
+    // front end mentor
+    const handlefrontendMentorEnter = () => {
+      size = 40;
+      followCursor.textContent = "Visite";
+      followCursor.style.fontSize = "10px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    const handlefrontendMentorLeave = () => {
+      size = 15;
+      followCursor.textContent = " ";
+      followCursor.style.fontSize = "15px";
+      gsap.to(followCursor, {
+        "--size": `${size}px`
+      });
+    };
+    /////////////////////////////////////////////////
+
     // Event listeners for mouse actions and scrolling
     article.forEach((i) => i.addEventListener("mouseenter", handleMouseEnter));
     article.forEach((i) => i.addEventListener("mouseleave", handleMouseLeave));
+    buttom.addEventListener("mouseenter", handleMouseEnterButtom);
+    buttom.addEventListener("mouseleave", handleMouseLeaveButtom);
     window.addEventListener("mousemove", handleFollowCursor);
     window.addEventListener("scroll", handleSetAdRemoveCursorFollow);
+
+    // footer evenst
+    gitHub.addEventListener("mouseenter", handleGitHubEnter);
+    gitHub.addEventListener("mouseleave", handleGitHubLeave);
+    instagram.addEventListener("mouseenter", handleinstagramEnter);
+    instagram.addEventListener("mouseleave", handleinstagramLeave);
+    linkedin.addEventListener("mouseenter", handlelinkedinEnter);
+    linkedin.addEventListener("mouseleave", handlelinkedinLeave);
+    frontendMentor.addEventListener("mouseenter", handlefrontendMentorEnter);
+    frontendMentor.addEventListener("mouseleave", handlefrontendMentorLeave);
 
     // Cleanup: remove all event listeners
     return () => {
@@ -132,12 +257,20 @@ const Home = () => {
       window.removeEventListener("scroll", handleScrollTextEffect);
       window.removeEventListener("mousemove", handleFollowCursor);
       window.removeEventListener("scroll", handleSetAdRemoveCursorFollow);
-      article.forEach((i) =>
-        i.removeEventListener("mouseenter", handleMouseEnter)
-      );
-      article.forEach((i) =>
-        i.removeEventListener("mouseleave", handleMouseLeave)
-      );
+      buttom.removeEventListener("mouseenter", handleMouseEnterButtom);
+      buttom.removeEventListener("mouseleave", handleMouseLeaveButtom);
+      article.forEach((i) => i.removeEventListener("mouseenter", handleMouseEnter));
+      article.forEach((i) => i.removeEventListener("mouseleave", handleMouseLeave));
+
+      // footer remove events
+      gitHub.removeEventListener("mouseenter", handleGitHubEnter);
+      gitHub.removeEventListener("mouseleave", handleGitHubLeave);
+      instagram.removeEventListener("mouseenter", handleinstagramEnter);
+      instagram.removeEventListener("mouseleave", handleinstagramLeave);
+      linkedin.removeEventListener("mouseenter", handlelinkedinEnter);
+      linkedin.removeEventListener("mouseleave", handlelinkedinLeave);
+      frontendMentor.removeEventListener("mouseenter",handlefrontendMentorEnter);
+      frontendMentor.removeEventListener("mouseleave",handlefrontendMentorLeave);
     };
   }, []); // Empty dependency array means this effect runs only once after the initial render
 
@@ -197,12 +330,13 @@ const Home = () => {
           ))}
         </section>
       </main>
-      
-      <ContactMe
-        fullnameRef={fullnameRef}
-        emailRef={emailRef}
-        subjectRef={subjectRef}
-        messageRef={messageRef}
+
+      <ContactMe buttomRef={buttomRef} />
+      <Footer
+        gitHubRef={gitHubRef}
+        instagramRef={instagramRef}
+        linkedinRef={linkedinRef}
+        frontendMentorRef={frontendMentorRef}
       />
 
       {/* Back-to-top button with MagnetoCircle component */}

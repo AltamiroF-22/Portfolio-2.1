@@ -17,8 +17,8 @@ const MagnetoCircle = ({ text, backgroundColor, img , size, position, cursor, al
 
     const activateMagneto = (event) => {
       let boundBox = magneto.getBoundingClientRect();
-      const magnetoStrenght = 80;
-      const magnetoTextStrenght = 60;
+      const magnetoStrenght = 60;
+      const magnetoTextStrenght = 40;
       const newX = (event.clientX - boundBox.left) / magneto.offsetWidth - 0.5;
       const newY = (event.clientY - boundBox.top) / magneto.offsetHeight - 0.5;
 

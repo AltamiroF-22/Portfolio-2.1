@@ -42,7 +42,7 @@ const Header = () => {
         "--x": `${x + 0.5}%`,
         "--y": `${y + 0.5}%`,
         "--size": `${size}px`,
-        duration: 0.27,
+        duration: 0.24,
         ease: "sine.out",
       });
     };
@@ -73,7 +73,7 @@ const Header = () => {
             fontWeigth="W900"
             color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
           />
-        <p>Front-end Developer.</p>
+          <p>Front-end Developer.</p>
         </div>
       </div>
 
@@ -98,7 +98,7 @@ const Header = () => {
               color={`${theme === "Light-Mode" ? "lightGray" : "almostBlack"}`}
             />
           </div>
-        <p>Front-end Developer.</p>
+          <p>Front-end Developer.</p>
         </div>
       </div>
     </header>

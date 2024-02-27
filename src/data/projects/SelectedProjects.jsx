@@ -13,6 +13,14 @@ export const SelectedProjectsData = [
     project_live: "https://snazzy-malasada-b4cc16.netlify.app/"
   },
   {
+    id: 5,
+    name: "Display-Flex Config",
+    alt: "Display-Flex Config screenshot",
+    image: DpFlexImage,
+    project_live:
+      "https://64efd8178cf9c304f36e4ead--deluxe-profiterole-fea8eb.netlify.app/"
+  },
+  {
     id: 2,
     name: "IP Address Tracker",
     alt: "IP Address Tracker screenshot",
@@ -33,12 +41,5 @@ export const SelectedProjectsData = [
     image: PedraPapelImage,
     project_live: "https://magical-duckanoo-d9dbfc.netlify.app/"
   },
-  {
-    id: 5,
-    name: "Display-Flex Config",
-    alt: "Display-Flex Config screenshot",
-    image: DpFlexImage,
-    project_live:
-      "https://64efd8178cf9c304f36e4ead--deluxe-profiterole-fea8eb.netlify.app/"
-  }
+  
 ];

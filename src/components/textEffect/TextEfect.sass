@@ -1,0 +1,102 @@
+@use '../../sass/_mixins'
+@use '../../sass/_variables'
+// fonts size
+
+.Size10
+    font-size: 10px
+
+.Size16
+    font-size: 16px
+    @include mixins.responsive-max-width-600px
+    font-size: 14px
+
+.Size24
+    font-size: 24px
+    @include mixins.responsive-max-width-600px
+        font-size: 20px
+
+.Size30
+    font-size: 30px
+
+.Size90
+    font-size: 6.025rem 
+    color: variables.$black-background
+    @include mixins.responsive-max-width-850px
+        font-size: 60px
+    @include mixins.responsive-max-width-600px
+        font-size: 35px
+
+// cursor
+
+.CN
+    cursor: none
+
+    
+
+// font weight
+
+.W100
+    font-weight: 100
+.W200
+    font-weight: 200
+.W300
+    font-weight: 300
+.W400
+    font-weight: 400
+.W500
+    font-weight: 500
+.W600
+    font-weight: 600
+.W700
+    font-weight: 700
+.W800
+    font-weight: 800
+.W900
+    font-weight: 900
+
+// color
+.lightGray
+    color: variables.$light-gray
+
+.almostBlack
+    color: variables.$black-background
+    
+.switch-Dark-Light
+    color: variables.$black-background
+
+.letter
+    display: block
+    animation: comingFromTheBottom 450ms both ease-in-out
+    animation-delay: calc(var(--i) * 25ms)
+    
+
+@keyframes comingFromTheBottom 
+  0% 
+    transform: translateY(100px)
+  
+  100% 
+    transform: translateY(0)
+  
+.frase 
+    width: 100%
+    justify-content: center
+    flex-wrap: wrap
+    overflow: hidden
+    position: relative
+    display: flex
+    transition: 1s
+
+.frase2 
+    justify-content: start
+
+.words 
+    display: flex
+
+.space 
+    width: 20px
+    height: 20px
+    @include mixins.responsive-max-width-850px
+        width: 15px
+    @include mixins.responsive-max-width-600px
+        width: 7px
+

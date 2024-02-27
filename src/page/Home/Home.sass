@@ -1,0 +1,18 @@
+@use '../../sass/_mixins'
+@use '../../sass/_variables'
+    
+.home-page
+    min-height: 200dvh
+
+    .back-to-top
+        position: fixed
+        transition: 500ms
+        z-index: 9
+        bottom: 0px
+        right: 20px
+
+    .back-to-top-off
+        transform: scale(0)
+
+    .back-to-top-on
+        transform: scale(1)

@@ -1,0 +1,91 @@
+@use '../../../sass/_mixins'
+@use '../../../sass/_variables'
+
+#contact
+    padding-top: 100px
+
+.contact-me-section
+    min-height: 100dvh
+    width: 100%
+    margin-top: 200px
+    opacity: 0
+    transition: 1s
+
+    .textEffect
+        transform: translateY(-50px)
+
+    .form
+        width:  80%
+        margin: 80px auto
+        display: flex
+        align-items: center
+        flex-direction: column       
+
+        textarea.form-control       
+            resize: vertical 
+            min-height: 60px
+            max-height: 150px
+            @include mixins.responsive-max-width-600px
+                max-height: 100px
+
+        .fullname-email-addres-div
+            display: flex
+            gap: 10px
+            width: 100%
+            margin-bottom: 60px
+            @include mixins.responsive-max-width-600px
+                flex-direction: column  
+                gap: 40px
+                margin-bottom: 30px
+
+        textarea.form-control,
+        input[type="email"],
+        input[type="text"] 
+            background: transparent
+            border: none
+            border-bottom: 1px solid variables.$almost-black
+            font-size: 16px
+            padding: 15px 5px
+            width: 100%
+            margin-bottom: 25px
+            outline: none
+
+        .div-btn-submit
+            display: flex
+            width: 100%
+            padding: 40px 0
+            justify-content: start
+
+            .submit
+                padding: 12px 37px 14px 40px
+                cursor: pointer
+                border-radius : 70px
+                outline: none
+                border: none
+                background-color: variables.$black-background
+                color: variables.$light-gray
+                font-weight: 600
+
+
+.contact-me-section-visible
+    margin-top: 0px
+    opacity: 1
+
+.Dark-theme 
+
+    .contact-me-section
+        background-color: variables.$black-background
+        
+        .form
+            textarea.form-control,
+            input[type="email"],
+            input[type="text"] 
+                color: variables.$white-color
+            
+        .div-btn-submit
+            .submit
+                background-color: variables.$light-gray
+                color: variables.$text-in-white
+
+                
+

@@ -1,0 +1,48 @@
+@use '../../../sass/_mixins'
+@use '../../../sass/_variables'
+
+footer
+   display: flex
+   flex-direction: column
+   align-items: center
+   justify-content: space-around
+   min-height: 170px
+   margin-top: 300px
+
+   .up
+        display: flex
+        justify-content: space-between
+        align-items: end
+        width: 80%
+        @include mixins.responsive-max-width-600px
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            gap: 30px
+            color: variables.$almost-black
+            
+        .right
+            display: flex
+            gap: 20px
+        img
+            width: 40px
+        a
+            font-size: 30px
+            color: variables.$almost-black
+
+.bottom
+    padding: 20px 0 10px 0
+    border-top: solid 1px #ccc
+    width: 100%
+    @include mixins.flex-center
+
+
+
+
+
+.Dark-theme 
+    footer
+        background-color: variables.$black-background
+        a
+            color: variables.$light-gray
+

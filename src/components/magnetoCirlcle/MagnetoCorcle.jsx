@@ -1,9 +1,9 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/prop-types */
 import { useEffect, useRef } from "react";
+import gsap, { Power4, Elastic } from "gsap";
 import "./MagnetoCircle.sass";
 
-const MagnetoCircle = ({ text, backgroundColor, img , size, position, cursor, alt }) => {
+// eslint-disable-next-line react/prop-types
+const MagnetoCircle = ({ text, backgroundColor, img, size, position, cursor, alt }) => {
   const magnetoRef = useRef(null);
   const magnetoTextRef = useRef(null);
 

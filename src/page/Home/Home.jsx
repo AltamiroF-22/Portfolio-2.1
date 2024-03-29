@@ -60,7 +60,9 @@ const Home = () => {
 
     // Show back up arrow based on scroll position
     const handleScroll = () => {
-      scrollY > 500 ? setShowBackUpArrow(true) : setShowBackUpArrow(false);
+      scrollY + 300 > document.body.offsetHeight - (window, innerHeight)
+        ? setShowBackUpArrow(true)
+        : setShowBackUpArrow(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -88,6 +90,8 @@ const Home = () => {
 
       if (Math.round(textEffectBox.y + 30 - window.innerHeight) < 0) {
         setIsTextEffectVisible(true);
+      }else{
+        setIsTextEffectVisible(false)
       }
     };
     window.addEventListener("scroll", handleScrollTextEffect);
@@ -103,7 +107,7 @@ const Home = () => {
 
       followCursor.textContent = "View";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     //selected projects
@@ -112,7 +116,7 @@ const Home = () => {
 
       followCursor.textContent = "";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     //Cursor follow
@@ -124,7 +128,7 @@ const Home = () => {
         "--y": `${pageY - window.scrollY - size / 1.5}px`,
         "--size": `${size}px`,
         duration: 0.24,
-        ease: "sine.out"
+        ease: "sine.out",
       });
     };
     // remove Cursor function
@@ -144,7 +148,7 @@ const Home = () => {
 
       followCursor.textContent = "Send";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     // hover Submit Contact me Form
@@ -154,7 +158,7 @@ const Home = () => {
       followCursor.textContent = "";
       followCursor.style.fontSize = "15px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
 
@@ -166,7 +170,7 @@ const Home = () => {
       followCursor.textContent = "Visite";
       followCursor.style.fontSize = "10px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     const handleGitHubLeave = () => {
@@ -174,7 +178,7 @@ const Home = () => {
       followCursor.textContent = " ";
       followCursor.style.fontSize = "15px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
 
@@ -184,7 +188,7 @@ const Home = () => {
       followCursor.textContent = "Visite";
       followCursor.style.fontSize = "10px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     const handleinstagramLeave = () => {
@@ -192,7 +196,7 @@ const Home = () => {
       followCursor.textContent = " ";
       followCursor.style.fontSize = "15px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
 
@@ -202,7 +206,7 @@ const Home = () => {
       followCursor.textContent = "Visite";
       followCursor.style.fontSize = "10px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     const handlelinkedinLeave = () => {
@@ -210,7 +214,7 @@ const Home = () => {
       followCursor.textContent = " ";
       followCursor.style.fontSize = "15px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
 
@@ -220,7 +224,7 @@ const Home = () => {
       followCursor.textContent = "Visite";
       followCursor.style.fontSize = "10px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     const handlefrontendMentorLeave = () => {
@@ -228,7 +232,7 @@ const Home = () => {
       followCursor.textContent = " ";
       followCursor.style.fontSize = "15px";
       gsap.to(followCursor, {
-        "--size": `${size}px`
+        "--size": `${size}px`,
       });
     };
     /////////////////////////////////////////////////
@@ -259,8 +263,12 @@ const Home = () => {
       window.removeEventListener("scroll", handleSetAdRemoveCursorFollow);
       buttom.removeEventListener("mouseenter", handleMouseEnterButtom);
       buttom.removeEventListener("mouseleave", handleMouseLeaveButtom);
-      article.forEach((i) => i.removeEventListener("mouseenter", handleMouseEnter));
-      article.forEach((i) => i.removeEventListener("mouseleave", handleMouseLeave));
+      article.forEach((i) =>
+        i.removeEventListener("mouseenter", handleMouseEnter)
+      );
+      article.forEach((i) =>
+        i.removeEventListener("mouseleave", handleMouseLeave)
+      );
 
       // footer remove events
       gitHub.removeEventListener("mouseenter", handleGitHubEnter);
@@ -269,8 +277,14 @@ const Home = () => {
       instagram.removeEventListener("mouseleave", handleinstagramLeave);
       linkedin.removeEventListener("mouseenter", handlelinkedinEnter);
       linkedin.removeEventListener("mouseleave", handlelinkedinLeave);
-      frontendMentor.removeEventListener("mouseenter",handlefrontendMentorEnter);
-      frontendMentor.removeEventListener("mouseleave",handlefrontendMentorLeave);
+      frontendMentor.removeEventListener(
+        "mouseenter",
+        handlefrontendMentorEnter
+      );
+      frontendMentor.removeEventListener(
+        "mouseleave",
+        handlefrontendMentorLeave
+      );
     };
   }, []); // Empty dependency array means this effect runs only once after the initial render
 
@@ -300,15 +314,13 @@ const Home = () => {
 
         {/* Header for the selected projects section */}
         <header className="selected-rojects-title" ref={textEffectRef}>
-          {isTextEffectVisible ? (
+          {isTextEffectVisible && (
             <TextEffect
               text1="selected projects"
               fontSize="Size30"
               fontWeigth="W800"
               color="switch-Dark-Light"
             />
-          ) : (
-            ""
           )}
         </header>
 

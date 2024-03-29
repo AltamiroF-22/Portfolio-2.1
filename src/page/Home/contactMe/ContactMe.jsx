@@ -25,6 +25,8 @@ const ContactMe = ({ buttomRef }) => {
 
       if (textEffectBox.y + 50 - window.innerHeight < 0) {
         setIsTextVisible(true);
+      } else {
+        setIsTextVisible(false);
       }
     };
 

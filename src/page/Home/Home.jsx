@@ -90,8 +90,8 @@ const Home = () => {
 
       if (Math.round(textEffectBox.y + 30 - window.innerHeight) < 0) {
         setIsTextEffectVisible(true);
-      }else{
-        setIsTextEffectVisible(false)
+      } else {
+        setIsTextEffectVisible(false);
       }
     };
     window.addEventListener("scroll", handleScrollTextEffect);
@@ -288,6 +288,8 @@ const Home = () => {
     };
   }, []); // Empty dependency array means this effect runs only once after the initial render
 
+  
+
   return (
     <div className="home-page" id="home">
       <Header />
@@ -328,11 +330,14 @@ const Home = () => {
         <section className="project">
           {SelectedProjectsData.map((item, index) => (
             <article
+              // className="single-project"
               key={item.id}
               ref={(el) => (articleRef.current[index] = el)}
             >
               {/* Render ProjectComponent for each project */}
               <ProjectComponent
+                className="single-project"
+                id={item.id}
                 h2={item.name}
                 src={item.image}
                 alt={item.alt}

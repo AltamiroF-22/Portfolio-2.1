@@ -5,23 +5,15 @@ import "./ContactMe.sass";
 import TextEffect from "../../../components/textEffect/TextEffect";
 
 const ContactMe = ({ buttomRef }) => {
-  const contactSectionRef = useRef(null);
   const textEffectRef = useRef(null);
-  const [isContactVisible, setIsContactVisible] = useState(false);
   const [isTextVisible, setIsTextVisible] = useState(false);
 
   useEffect(() => {
-    const contactSection = contactSectionRef.current;
     const textEffect = textEffectRef.current;
 
     //set a new class name when this fuction is true
     const handleScrollY = () => {
-      const contactSectionBox = contactSection.getBoundingClientRect();
       const textEffectBox = textEffect.getBoundingClientRect();
-
-      if (contactSectionBox.y - window.innerHeight / 1.1 < 0) {
-        setIsContactVisible(true);
-      }
 
       if (textEffectBox.y + 50 - window.innerHeight < 0) {
         setIsTextVisible(true);
@@ -39,22 +31,18 @@ const ContactMe = ({ buttomRef }) => {
 
   return (
     <section
-      className={`contact-me-section ${
-        isContactVisible ? "contact-me-section-visible" : ""
-      }`}
+      className="contact-me-section"
       id="contact"
-      ref={contactSectionRef}
+    
     >
       <div className="textEffect" ref={textEffectRef}>
-        {isTextVisible ? (
+        {isTextVisible && (
           <TextEffect
             text1="say hello"
             fontWeigth="W800"
             color="switch-Dark-Light"
             fontSize="Size30"
           />
-        ) : (
-          ""
         )}
       </div>
       <form

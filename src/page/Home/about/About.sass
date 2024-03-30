@@ -3,59 +3,65 @@
 
 
 .about-main
-    min-height: 100vh
     margin-bottom: 5%
-    .about
-        // box-shadow: 0rem 0rem 2rem 1rem #0000001b 
-        background-color: variables.$black-background
-        // clip-path: circle(var(--size, 300pc) at var(--x, 50%) var(--aboutY, 50%))
-        transform: scale(.5)
-        min-height: 100dvh
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-direction: column
-        border-radius:  50px  50px 0  0 
-        padding: 40px 10%
-        @include mixins.responsive-max-width-600px
-            border-radius:  20px  20px 0  0 
 
-
-
-        .title
-            width:100%
-            display: flex 
-            justify-content: start
-            padding: 10px 0 60px 0
-
-        .textAboutMe
+    .container
+        min-height: 120vh
+        .about
+            // box-shadow: 0rem 0rem 2rem 1rem #0000001b 
+            background-color: variables.$black-background
+            background-image: url('../../../assets/noise/1000-90-8-monochrome.png')
+            background-position: center
+            background-size: contain
+            background-repeat: repeat
+            // clip-path: circle(var(--size, 300pc) at var(--x, 50%) var(--aboutY, 50%))
+            transform: scale(.5)
+            min-height: 110dvh
             display: flex
-            align-items: start
-            max-width: 1500px
-
-
-            .rightSide
-                margin-top: -80px
-                @include mixins.responsive-max-width-850px
-                    margin-top: -45px
-
-
-
-
-        .textAboutMe
-            display: flex
-            justify-content: space-between
-            gap: 50px
+            justify-content: center
             align-items: center
-            @include mixins.responsive-max-width-850px
-                flex-direction: column
+            flex-direction: column
+            border-radius:  50px  50px 0  0 
+            padding: 40px 10%
+            @include mixins.responsive-max-width-600px
+                border-radius:  20px  20px 0  0 
 
-            p
-                color: variables.$light-gray
-                padding: 20px 10px
-                font-size: 17
-                font-weight: 400
-                min-width: 300px
+
+
+            .title
+                width:100%
+                display: flex 
+                justify-content: start
+                padding: 10px 0 60px 0
+
+            .textAboutMe
+                display: flex
+                align-items: start
+                max-width: 1500px
+
+
+                .rightSide
+                    margin-top: -80px
+                    @include mixins.responsive-max-width-850px
+                        margin-top: -45px
+
+
+
+
+            .textAboutMe
+                display: flex
+                justify-content: space-between
+                gap: 50px
+                align-items: center
+                @include mixins.responsive-max-width-850px
+                    flex-direction: column
+
+                p
+                    color: variables.$light-gray
+                    padding: 20px 10px
+                    font-size: 17
+                    font-weight: 400
+                    min-width: 300px
 
 
 .Dark-theme 

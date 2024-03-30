@@ -319,7 +319,7 @@ const Home = () => {
           {isTextEffectVisible && (
             <TextEffect
               text1="selected projects"
-              fontSize="Size30"
+              fontSize="SizeSP"
               fontWeigth="W800"
               color="switch-Dark-Light"
             />

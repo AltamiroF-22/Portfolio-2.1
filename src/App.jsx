@@ -11,14 +11,13 @@ import "./sass/main.sass";
 import Navbar from "./components/navbar/Navbar";
 import Loading from "./components/loading/Loading";
 
-
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1450);
+    }, 1650);
   }, []);
 
   const { theme } = useContext(ThemeContext);

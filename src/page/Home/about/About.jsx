@@ -36,11 +36,11 @@ const About = () => {
     gsap.to(".about", {
       scale: 1,
       scrollTrigger: {
-        trigger: ".about-main",
+        trigger: ".container",
         // markers: true,
         scrub: 1,
         start: "top 80%",
-        end: "bottom 125%",
+        end: "bottom 145%",
         // pin: true,
       },
     });
@@ -52,54 +52,57 @@ const About = () => {
 
   return (
     <main className="about-main" id="about">
-      <section className={`about`}>
-        <h2 className="title" ref={textEffectRef}>
-          {isTextEffectVisible && (
-            <TextEffect
-              text1="about-me"
-              fontWeigth="W700"
-              color="lightGray"
-              fontSize="Size30"
-            />
-          )}
-        </h2>
-        <div className="textAboutMe">
-          <article className="leftSide">
-            <p>
-              Hey there, I'm Altamiro Ribeiro da Rocha Junior, a web development
-              enthusiast who began their journey in the programming world in
-              December 2022. My exploration started with HTML and CSS, delving
-              into the structures and design of web pages.
-            </p>
-            <p>
-              The passion for web development led me to explore JavaScript in
-              March 2023, opening doors to interactivity and dynamism in my
-              projects.
-            </p>
-            <p>
-              Later, in November 2023, I embarked on an exciting journey to
-              learn React and Sass, enhancing my skills and enabling me to
-              create more robust and stylized web applications.
-            </p>
-          </article>
-          <article className="rightSide">
-            <p>
-              At the end of 2023, I faced a personal challenge when my mom was
-              hospitalized, which caused me to take a break for about two
-              months. However, I returned to my learning path at the end of
-              December 2023, motivated by my passion for programming and my
-              desire to continue growing as a developer.
-            </p>
-            <p>
-              But nowadays (1/16/2024), I'm excited to start my journey with
-              TypeScript, adding an additional layer of typing and structure to
-              my skill set. I'm eager to explore new horizons and face more
-              complex challenges while continuing to improve my skills as a
-              developer...
-            </p>
-          </article>
-        </div>
-      </section>
+      <div className="container">
+        <section className={`about`}>
+          <h2 className="title" ref={textEffectRef}>
+            {isTextEffectVisible && (
+              <TextEffect
+                text1="about-me"
+                fontWeigth="W700"
+                color="lightGray"
+                fontSize="Size30"
+              />
+            )}
+          </h2>
+          <div className="textAboutMe">
+            <article className="leftSide">
+              <p>
+                Hey there, I'm Altamiro Ribeiro da Rocha Junior, a web
+                development enthusiast who began their journey in the
+                programming world in December 2022. My exploration started with
+                HTML and CSS, delving into the structures and design of web
+                pages.
+              </p>
+              <p>
+                The passion for web development led me to explore JavaScript in
+                March 2023, opening doors to interactivity and dynamism in my
+                projects.
+              </p>
+              <p>
+                Later, in November 2023, I embarked on an exciting journey to
+                learn React and Sass, enhancing my skills and enabling me to
+                create more robust and stylized web applications.
+              </p>
+            </article>
+            <article className="rightSide">
+              <p>
+                At the end of 2023, I faced a personal challenge when my mom was
+                hospitalized, which caused me to take a break for about two
+                months. However, I returned to my learning path at the end of
+                December 2023, motivated by my passion for programming and my
+                desire to continue growing as a developer.
+              </p>
+              <p>
+                But nowadays (2/16/2024), I'm excited to start my journey with
+                TypeScript, adding an additional layer of typing and structure
+                to my skill set. I'm eager to explore new horizons and face more
+                complex challenges while continuing to improve my skills as a
+                developer...
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
     </main>
   );
 };

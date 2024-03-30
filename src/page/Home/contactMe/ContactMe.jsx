@@ -41,7 +41,7 @@ const ContactMe = ({ buttomRef }) => {
             text1="say hello"
             fontWeigth="W800"
             color="switch-Dark-Light"
-            fontSize="Size30"
+            fontSize="SizeSP"
           />
         )}
       </div>

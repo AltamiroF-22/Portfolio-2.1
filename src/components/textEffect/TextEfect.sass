@@ -20,9 +20,15 @@
     @include mixins.responsive-max-width-600px
     font-size: 24px
 
+.SizeSP
+    font-size: 4.025rem 
+    @include mixins.responsive-max-width-600px
+        font-size: 1.9rem 
+
+
 
 .Size90
-    font-size: 6.025rem 
+    font-size: 7.025rem 
     color: variables.$black-background
 
     @include mixins.responsive-max-width-850px
@@ -56,24 +62,31 @@
 .W800
     font-weight: 800
 .W900
-    font-family: 'Zina', sans-serif
+    font-family: 'General Sans', sans-serif
     font-weight: 900    
 
 // color
 .lightGray
     color: variables.$light-gray
+.lightGray-2
+    color: variables.$gray-backgroun
+
 
 .almostBlack
     color: variables.$black-background
     
 .switch-Dark-Light
-    color: variables.$black-background
+    color: variables.$gray-backgroun
 
 .letter
     display: block
     animation: comingFromTheBottom 450ms both ease-in-out
     animation-delay: calc(var(--i) * 25ms)
-    
+
+.black-text
+    color: variables.$almost-black
+
+
 
 @keyframes comingFromTheBottom 
   0% 

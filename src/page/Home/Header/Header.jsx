@@ -65,13 +65,13 @@ const Header = () => {
             text1="Welcome to my"
             fontSize="Size90"
             fontWeigth="W900"
-            color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
+            color={`${theme === "Light-Mode" ? "black-text" : "lightGray-2"}`}
           />
           <TextEffect
             text1="visual journey"
             fontSize="Size90"
             fontWeigth="W900"
-            color={`${theme === "Light-Mode" ? "" : "lightGray"}`}
+            color={`${theme === "Light-Mode" ? "black-text" : "lightGray-2"}`}
           />
           <p>Front-end Developer.</p>
         </div>

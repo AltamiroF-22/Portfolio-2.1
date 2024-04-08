@@ -15,7 +15,7 @@ export const SelectedProjectsData = [
   },
   {
     id: 5,
-    name: "Display-Flex Config",
+    name: "Display-Flex Config (Not responsive)",
     alt: "Display-Flex Config screenshot",
     image: DpFlexImage,
     project_live:
